@@ -6,6 +6,7 @@ A static website (plain HTML, CSS and a little JavaScript) for a massage practic
 |---|---|
 | English home page | `index.html` |
 | German home page | `de/index.html` |
+| Request form (EN / DE) | `book.html` / `de/book.html` |
 | Impressum | `impressum.html` |
 | Datenschutz | `datenschutz.html` |
 
@@ -21,17 +22,15 @@ A static website (plain HTML, CSS and a little JavaScript) for a massage practic
 
 You can edit any file directly on github.com (open the file and click the pencil icon). The site updates about a minute after you save.
 
-## Booking (Cal.com)
+## Session requests (Web3Forms)
 
-1. Create a free account at cal.com and connect your calendar.
-2. Create one **event type per treatment**. The event slug (the last part of its link) must match `calEvent` in `treatments.js`, e.g. `cal.com/yourname/classic`.
-3. In each event type, under **Location**, add two options:
-   - *In person (organizer address)*: the studio address
-   - *In person (attendee address)*: the client enters their address
-4. Optional: in Cal.com → Settings → Appearance, set the brand colour to `#E0A458` and the dark theme.
-5. Put your Cal.com username into `calUsername` at the top of `treatments.js`.
+Customers request a session on `book.html` (German: `de/book.html`). The request is emailed to you, and you confirm by email or phone.
 
-Until the username is set, the booking buttons simply link to cal.com. Once it's set, booking opens in a pop-up on the site. The Cal.com script only loads when someone clicks a booking button, which is better for privacy and keeps the page fast.
+1. Go to **web3forms.com**, enter the email address where requests should arrive, and copy the **access key** they email you.
+2. Paste it into `formAccessKey` at the top of `treatments.js`.
+3. Send yourself a test request.
+
+Free plan: 250 requests per month. Until the key is set, the form shows a "not connected yet" message.
 
 ## Fonts (self-hosted, for GDPR)
 

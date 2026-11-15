@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request a session – Slow Space Massage Berlin</title>
+  <meta name="description" content="Request a massage session at Slow Space in Berlin: in the studio or at your home, hotel or office.">
+  <meta name="theme-color" content="#0F2A2E">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="./">SLOW SPACE</a>
+      <nav class="nav" aria-label="Main">
+        <div class="nav-links">
+          <a href="./#treatments">Treatments</a>
+          <a href="./#about">About</a>
+        </div>
+        <div class="lang" role="group" aria-label="Language"><a href="#" hreflang="en" lang="en" aria-current="true">EN</a><a href="de/book.html" hreflang="de" lang="de" >DE</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="request">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="request-inner">
+      <div class="request-head">
+        <h1>Request a session</h1>
+        <p class="hero-lead">Tell me where, when and what. I reply within 24 hours to confirm the time and details.</p>
+      </div>
+
+      <div class="form-success" id="form-success" tabindex="-1" hidden>
+        <h2>Thank you!</h2>
+        <p>Your request has been sent. I'll get back to you within 24 hours to confirm.</p>
+        <a class="btn" href="./">Back to the home page</a>
+      </div>
+
+      <form class="request-form" id="request-form" novalidate>
+        <fieldset>
+          <legend>Where would you like your massage? <span class="req" aria-hidden="true">*</span></legend>
+          <div class="seg">
+            <label><input type="radio" name="where" value="studio" checked><span>In the studio</span></label>
+            <label><input type="radio" name="where" value="home"><span>At your place</span></label>
+          </div>
+        </fieldset>
+
+        <div class="grid-2">
+          <div class="field"><label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">Email <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+
+        <div class="field" id="address-field" hidden>
+          <label for="f-address">Address in Berlin <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-address" name="address" type="text" autocomplete="street-address" placeholder="Street, number, postcode">
+          <p class="hint">Home, hotel or office in Berlin.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="field"><label for="f-date">Preferred date <span class="req" aria-hidden="true">*</span></label><input id="f-date" name="date" type="date" required></div>
+          <div class="field"><label for="f-time">Preferred time</label><select id="f-time" name="time"><option>Morning</option><option>Midday</option><option>Afternoon</option><option>Evening</option><option>Flexible</option></select></div>
+        </div>
+
+        <div class="field"><label for="f-treatment">Treatment <span class="req" aria-hidden="true">*</span></label><select id="f-treatment" name="treatment" data-treatments data-not-sure required></select></div>
+
+        <div class="field"><label for="f-message">Anything I should know? <span class="opt">(optional)</span></label><textarea id="f-message" name="message" rows="4" placeholder="E.g. pressure preference, focus areas, other possible days. Please don't share detailed health information here, we'll talk about it before the session."></textarea></div>
+
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <label class="consent"><input type="checkbox" name="consent" required><span>I agree that my details are used to answer my request. See the <a href="datenschutz.html">privacy policy</a>. <span class="req" aria-hidden="true">*</span></span></label>
+
+        <button class="btn btn-block" type="submit">Send my request</button>
+        <p class="form-status" id="form-status" role="alert"></p>
+        <p class="small">No payment now. You pay after the session, in cash or by bank transfer.</p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Slow Space · Berlin · Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</span>
+      <nav aria-label="Legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz (Privacy)</a></nav>
+    </div>
+  </footer>
+
+  <script src="treatments.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>

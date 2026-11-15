@@ -25,7 +25,7 @@
           <a href="#how">How it works</a>
         </div>
         <div class="lang" role="group" aria-label="Language"><a href="#" hreflang="en" lang="en" aria-current="true">EN</a><a href="de/" hreflang="de" lang="de" >DE</a></div>
-        <a class="btn" href="#book">Book</a>
+        <a class="btn" href="book.html">Request</a>
       </nav>
     </div>
   </header>
@@ -40,22 +40,21 @@
           <p class="breath">Breathe in 4 · out 6</p>
         </div>
 
-        <form class="book-box" id="book-form" aria-label="Start booking">
-          <h2>Book a session</h2>
+        <form class="book-box" action="book.html" method="get" aria-label="Request a session">
+          <h2>Request a session</h2>
           <fieldset>
             <legend>Where?</legend>
             <div class="seg">
-              <button type="button" data-where="studio" aria-pressed="true" data-note="Studio in [DISTRICT], Berlin.">In the studio</button>
-              <button type="button" data-where="home" aria-pressed="false" data-note="You'll add your address in the next step.">At your place</button>
+              <label><input type="radio" name="where" value="studio" checked><span>In the studio</span></label>
+              <label><input type="radio" name="where" value="home"><span>At your place</span></label>
             </div>
           </fieldset>
-          <p class="where-note" id="where-note" aria-live="polite">Studio in [DISTRICT], Berlin.</p>
           <div class="field">
             <label for="treatment">Treatment</label>
-            <select id="treatment" name="treatment"></select>
+            <select id="treatment" name="treatment" data-treatments></select>
           </div>
-          <button class="btn btn-block" type="submit">Choose a time</button>
-          <p class="small">Opens the booking calendar from Cal.com. You get a confirmation and a reminder by email. <a href="datenschutz.html">Privacy</a></p>
+          <button class="btn btn-block" type="submit">Continue</button>
+          <p class="small">Tell me when suits you. I reply within 24 hours to confirm. No payment now.</p>
         </form>
       </div>
     </section>
@@ -104,11 +103,11 @@
       <div class="wrap">
         <div class="section-head"><h2>How booking works</h2></div>
         <ol class="steps">
-        <li><span class="num" aria-hidden="true">I</span><strong>Choose treatment and time</strong><span>Pick a free slot in the calendar.</span></li>
-        <li><span class="num" aria-hidden="true">II</span><strong>Studio or your place</strong><span>For a home visit, add your address.</span></li>
-        <li><span class="num" aria-hidden="true">III</span><strong>Pay after the session</strong><span>In cash or by bank transfer.</span></li>
+        <li><span class="num" aria-hidden="true">I</span><strong>Send a request</strong><span>Treatment, preferred day and time, studio or your place.</span></li>
+        <li><span class="num" aria-hidden="true">II</span><strong>I confirm</strong><span>By email or phone, within 24 hours.</span></li>
+        <li><span class="num" aria-hidden="true">III</span><strong>Relax, pay afterwards</strong><span>In cash or by bank transfer.</span></li>
         </ol>
-        <div class="cta"><a class="btn" href="#book">Book a session</a></div>
+        <div class="cta"><a class="btn" href="book.html">Request a session</a></div>
       </div>
     </section>
   </main>
@@ -120,7 +119,7 @@
     </div>
   </footer>
 
-  <div class="mbar"><a class="btn" href="#book">Book a session</a></div>
+  <div class="mbar"><a class="btn" href="book.html">Request a session</a></div>
 
   <script src="treatments.js"></script>
   <script src="assets/site.js"></script>

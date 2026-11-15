@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Termin anfragen – Slow Space Massage Berlin</title>
+  <meta name="description" content="Fragen Sie eine Massage bei Slow Space in Berlin an: im Studio oder bei Ihnen zu Hause, im Hotel oder im Büro.">
+  <meta name="theme-color" content="#0F2A2E">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="./">SLOW SPACE</a>
+      <nav class="nav" aria-label="Hauptmenü">
+        <div class="nav-links">
+          <a href="./#treatments">Behandlungen</a>
+          <a href="./#about">Über mich</a>
+        </div>
+        <div class="lang" role="group" aria-label="Sprache"><a href="../book.html" hreflang="en" lang="en" >EN</a><a href="#" hreflang="de" lang="de" aria-current="true">DE</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="request">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="request-inner">
+      <div class="request-head">
+        <h1>Termin anfragen</h1>
+        <p class="hero-lead">Sagen Sie mir wo, wann und was. Ich melde mich innerhalb von 24 Stunden und bestätige Termin und Details.</p>
+      </div>
+
+      <div class="form-success" id="form-success" tabindex="-1" hidden>
+        <h2>Vielen Dank!</h2>
+        <p>Ihre Anfrage wurde gesendet. Ich melde mich innerhalb von 24 Stunden zur Bestätigung.</p>
+        <a class="btn" href="./">Zurück zur Startseite</a>
+      </div>
+
+      <form class="request-form" id="request-form" novalidate>
+        <fieldset>
+          <legend>Wo möchten Sie Ihre Massage? <span class="req" aria-hidden="true">*</span></legend>
+          <div class="seg">
+            <label><input type="radio" name="where" value="studio" checked><span>Im Studio</span></label>
+            <label><input type="radio" name="where" value="home"><span>Bei Ihnen</span></label>
+          </div>
+        </fieldset>
+
+        <div class="grid-2">
+          <div class="field"><label for="f-name">Ihr Name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">E-Mail <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="field"><label for="f-phone">Telefon <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+
+        <div class="field" id="address-field" hidden>
+          <label for="f-address">Adresse in Berlin <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-address" name="address" type="text" autocomplete="street-address" placeholder="Straße, Hausnummer, PLZ">
+          <p class="hint">Zu Hause, im Hotel oder im Büro in Berlin.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="field"><label for="f-date">Wunschtermin <span class="req" aria-hidden="true">*</span></label><input id="f-date" name="date" type="date" required></div>
+          <div class="field"><label for="f-time">Wunschzeit</label><select id="f-time" name="time"><option>Vormittag</option><option>Mittag</option><option>Nachmittag</option><option>Abend</option><option>Flexibel</option></select></div>
+        </div>
+
+        <div class="field"><label for="f-treatment">Behandlung <span class="req" aria-hidden="true">*</span></label><select id="f-treatment" name="treatment" data-treatments data-not-sure required></select></div>
+
+        <div class="field"><label for="f-message">Möchten Sie mir noch etwas mitteilen? <span class="opt">(optional)</span></label><textarea id="f-message" name="message" rows="4" placeholder="Z. B. gewünschter Druck, Schwerpunkte, weitere mögliche Tage. Bitte teilen Sie hier keine ausführlichen Gesundheitsdaten mit, darüber sprechen wir vor der Behandlung."></textarea></div>
+
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <label class="consent"><input type="checkbox" name="consent" required><span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden. Siehe <a href="../datenschutz.html">Datenschutzerklärung</a>. <span class="req" aria-hidden="true">*</span></span></label>
+
+        <button class="btn btn-block" type="submit">Anfrage senden</button>
+        <p class="form-status" id="form-status" role="alert"></p>
+        <p class="small">Keine Zahlung im Voraus. Sie bezahlen nach der Behandlung, bar oder per Überweisung.</p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Slow Space · Berlin · Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</span>
+      <nav aria-label="Legal"><a href="../impressum.html">Impressum</a><a href="../datenschutz.html">Datenschutz</a></nav>
+    </div>
+  </footer>
+
+  <script src="../treatments.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

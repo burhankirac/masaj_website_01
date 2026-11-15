@@ -3,97 +3,127 @@
   var SITE = window.SITE || { treatments: [] };
   var lang = (document.documentElement.lang || "en").slice(0, 2) === "de" ? "de" : "en";
   var T = {
-    en: { book: "Book", bookName: "Book {name}" },
-    de: { book: "Buchen", bookName: "{name} buchen" }
+    en: {
+      request: "Request", requestName: "Request {name}", notSure: "Not sure yet",
+      sending: "Sending…", notReady: "The request form isn't connected yet. Please contact us by email for now.",
+      failed: "Sorry, something went wrong. Please try again or contact us by email.",
+      subject: "New session request", studio: "Studio", home: "At the client's place"
+    },
+    de: {
+      request: "Anfragen", requestName: "{name} anfragen", notSure: "Noch unsicher",
+      sending: "Wird gesendet …", notReady: "Das Anfrageformular ist noch nicht verbunden. Bitte schreiben Sie vorerst eine E-Mail.",
+      failed: "Leider hat etwas nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie eine E-Mail.",
+      subject: "Neue Terminanfrage", studio: "Studio", home: "Hausbesuch"
+    }
   }[lang];
 
-  function calLink(event) {
-    return SITE.calUsername + "/" + event;
-  }
-  function calUrl(event) {
-    return "https://cal.com/" + calLink(event);
-  }
   function esc(s) {
     return String(s).replace(/[&<>"]/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
     });
   }
+  function nameOf(t) { return t.name[lang] || t.name.en; }
+  var bookPage = document.body.getAttribute("data-book-page") || "book.html";
 
-  /* ---- Treatment list ---- */
+  /* ---- Treatment list on the home page ---- */
   var list = document.getElementById("treatment-list");
   if (list) {
     list.innerHTML = SITE.treatments.map(function (t) {
-      var name = t.name[lang] || t.name.en;
+      var name = nameOf(t);
       return '<li class="treatment">' +
         '<div class="treatment-top"><h3>' + esc(name) + '</h3>' +
         '<span class="meta">' + esc(t.duration) + ' · ' + esc(t.price) + '</span></div>' +
         '<p>' + esc(t.desc[lang] || t.desc.en) + '</p>' +
-        '<a class="book-link" data-cal-event="' + esc(t.calEvent) + '" href="' + esc(calUrl(t.calEvent)) + '" ' +
-        'aria-label="' + esc(T.bookName.replace("{name}", name)) + '">' + esc(T.book) + ' →</a>' +
+        '<a class="book-link" href="' + esc(bookPage + "?treatment=" + encodeURIComponent(t.id)) + '" ' +
+        'aria-label="' + esc(T.requestName.replace("{name}", name)) + '">' + esc(T.request) + ' →</a>' +
         '</li>';
     }).join("");
   }
 
-  /* ---- Booking box: treatment select ---- */
-  var select = document.getElementById("treatment");
-  if (select) {
-    select.innerHTML = SITE.treatments.map(function (t) {
-      return '<option value="' + esc(t.calEvent) + '">' + esc(t.name[lang] || t.name.en) + '</option>';
+  /* ---- Treatment selects (home box + request form) ---- */
+  Array.prototype.forEach.call(document.querySelectorAll("select[data-treatments]"), function (sel) {
+    var html = SITE.treatments.map(function (t) {
+      return '<option value="' + esc(t.id) + '">' + esc(nameOf(t)) + '</option>';
     }).join("");
-  }
-
-  /* ---- Booking box: studio / at your place ---- */
-  var seg = document.querySelectorAll("[data-where]");
-  var note = document.getElementById("where-note");
-  Array.prototype.forEach.call(seg, function (btn) {
-    btn.addEventListener("click", function () {
-      Array.prototype.forEach.call(seg, function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
-      if (note) note.textContent = btn.getAttribute("data-note");
-    });
+    if (sel.hasAttribute("data-not-sure")) html += '<option value="not-sure">' + esc(T.notSure) + '</option>';
+    sel.innerHTML = html;
   });
 
-  /* ---- Cal.com: loaded only when someone clicks a booking button ---- */
-  function loadCal() {
-    if (window.Cal) return;
-    (function (C, A, L) {
-      var p = function (a, ar) { a.q.push(ar); };
-      var d = C.document;
-      C.Cal = C.Cal || function () {
-        var cal = C.Cal; var ar = arguments;
-        if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
-        if (ar[0] === L) {
-          var api = function () { p(api, arguments); };
-          var namespace = ar[1]; api.q = api.q || [];
-          if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); }
-          else p(cal, ar);
-          return;
-        }
-        p(cal, ar);
-      };
-    })(window, "https://app.cal.com/embed/embed.js", "init");
-    window.Cal("init", { origin: "https://cal.com" });
-    window.Cal("ui", { theme: "dark", cssVarsPerTheme: { dark: { "cal-brand": "#E0A458" } }, hideEventTypeDetails: false });
-  }
-
-  function openBooking(event, e) {
-    if (!SITE.calUsername || SITE.calUsername.indexOf("YOUR-") === 0) return; // not set up yet: follow the link
-    if (e) e.preventDefault();
-    loadCal();
-    window.Cal("modal", { calLink: calLink(event), config: { layout: "month_view" } });
-  }
-
-  document.addEventListener("click", function (e) {
-    var a = e.target.closest && e.target.closest("[data-cal-event]");
-    if (a) openBooking(a.getAttribute("data-cal-event"), e);
-  });
-
-  var form = document.getElementById("book-form");
+  /* ---- Request form ---- */
+  var form = document.getElementById("request-form");
   if (form) {
+    var params = new URLSearchParams(window.location.search);
+    var tParam = params.get("treatment");
+    var tSel = form.querySelector("select[name=treatment]");
+    if (tParam && tSel && tSel.querySelector('option[value="' + CSS.escape(tParam) + '"]')) tSel.value = tParam;
+    var wParam = params.get("where");
+    if (wParam === "home" || wParam === "studio") {
+      var r = form.querySelector('input[name=where][value="' + wParam + '"]');
+      if (r) r.checked = true;
+    }
+
+    var dateInput = form.querySelector("input[type=date]");
+    if (dateInput) {
+      var d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+      dateInput.min = d.toISOString().slice(0, 10);
+    }
+
+    var addrWrap = document.getElementById("address-field");
+    var addr = form.querySelector("input[name=address]");
+    function syncWhere() {
+      var home = form.querySelector("input[name=where]:checked").value === "home";
+      addrWrap.hidden = !home;
+      addr.required = home;
+    }
+    Array.prototype.forEach.call(form.querySelectorAll("input[name=where]"), function (r) {
+      r.addEventListener("change", syncWhere);
+    });
+    syncWhere();
+
+    var status = document.getElementById("form-status");
+    var btn = form.querySelector("button[type=submit]");
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var ev = select ? select.value : SITE.treatments[0].calEvent;
-      if (!SITE.calUsername || SITE.calUsername.indexOf("YOUR-") === 0) { window.location.href = calUrl(ev); return; }
-      openBooking(ev, null);
+      if (!form.reportValidity()) return;
+      if (!SITE.formAccessKey || SITE.formAccessKey.indexOf("YOUR-") === 0) {
+        status.textContent = T.notReady; status.className = "form-status error"; return;
+      }
+      var fd = new FormData(form);
+      if (fd.get("botcheck")) return;
+      var where = fd.get("where") === "home" ? T.home : T.studio;
+      var tr = tSel.options[tSel.selectedIndex].text;
+      var payload = {
+        access_key: SITE.formAccessKey,
+        subject: T.subject + ": " + tr + " · " + fd.get("date"),
+        from_name: "Slow Space website",
+        replyto: fd.get("email"),
+        "Name": fd.get("name"),
+        "Email": fd.get("email"),
+        "Phone": fd.get("phone") || "–",
+        "Where": where,
+        "Address": fd.get("where") === "home" ? fd.get("address") : "–",
+        "Preferred date": fd.get("date"),
+        "Preferred time": fd.get("time"),
+        "Treatment": tr,
+        "Message": fd.get("message") || "–",
+        "Language": lang.toUpperCase()
+      };
+      btn.disabled = true; var label = btn.textContent; btn.textContent = T.sending;
+      status.textContent = ""; status.className = "form-status";
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (r) { return r.json(); }).then(function (res) {
+        if (!res.success) throw new Error(res.message || "error");
+        form.hidden = true;
+        var ok = document.getElementById("form-success");
+        ok.hidden = false; ok.focus();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }).catch(function () {
+        status.textContent = T.failed; status.className = "form-status error";
+        btn.disabled = false; btn.textContent = label;
+      });
     });
   }
 

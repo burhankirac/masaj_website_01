@@ -2,8 +2,8 @@
    EDIT THIS FILE to change treatments, durations, prices and booking.
    Both the English and the German page read from here.
    ---------------------------------------------------------------------
-   calUsername : your Cal.com username (cal.com/<username>)
-   calEvent    : the event slug in Cal.com (cal.com/<username>/<calEvent>)
+   formAccessKey : the key from web3forms.com (requests are emailed to you)
+   id            : short name used in links, lowercase, no spaces
    duration    : shown as written, e.g. "60 / 90 min"
    price       : shown as written, e.g. "70 € / 95 €"
    To remove a treatment, delete its { ... } block.
@@ -11,11 +11,11 @@
    ===================================================================== */
 
 window.SITE = {
-  calUsername: "YOUR-CAL-USERNAME",
+  formAccessKey: "YOUR-WEB3FORMS-ACCESS-KEY",
 
   treatments: [
     {
-      calEvent: "classic",
+      id: "classic",
       name: { en: "Classic", de: "Klassische Massage" },
       duration: "[60 / 90 min]",
       price: "[PRICE]",
@@ -25,7 +25,7 @@ window.SITE = {
       }
     },
     {
-      calEvent: "face-glow",
+      id: "face-glow",
       name: { en: "Face Glow", de: "Face Glow" },
       duration: "[45 min]",
       price: "[PRICE]",
@@ -35,7 +35,7 @@ window.SITE = {
       }
     },
     {
-      calEvent: "free-flow",
+      id: "free-flow",
       name: { en: "Free Flow", de: "Free Flow" },
       duration: "[60 / 90 min]",
       price: "[PRICE]",
@@ -45,7 +45,7 @@ window.SITE = {
       }
     },
     {
-      calEvent: "deep-tissue",
+      id: "deep-tissue",
       name: { en: "Deep Tissue", de: "Deep Tissue" },
       duration: "[60 / 90 min]",
       price: "[PRICE]",
@@ -55,7 +55,7 @@ window.SITE = {
       }
     },
     {
-      calEvent: "foot-massage",
+      id: "foot-massage",
       name: { en: "Foot massage", de: "Fußmassage" },
       duration: "[30 / 45 min]",
       price: "[PRICE]",
@@ -65,7 +65,7 @@ window.SITE = {
       }
     },
     {
-      calEvent: "thai",
+      id: "thai",
       name: { en: "Thai", de: "Thai-Massage" },
       duration: "[60 / 90 min]",
       price: "[PRICE]",
@@ -75,7 +75,7 @@ window.SITE = {
       }
     },
     {
-      calEvent: "legs",
+      id: "legs",
       name: { en: "Legs", de: "Beinmassage" },
       duration: "[30 / 45 min]",
       price: "[PRICE]",
@@ -85,7 +85,7 @@ window.SITE = {
       }
     },
     {
-      calEvent: "ortho-bionomy",
+      id: "ortho-bionomy",
       name: { en: "Ortho-Bionomy", de: "Orthobionomie" },
       duration: "[60 min]",
       price: "[PRICE]",
@@ -95,7 +95,7 @@ window.SITE = {
       }
     },
     {
-      calEvent: "lomi-lomi",
+      id: "lomi-lomi",
       name: { en: "Lomi Lomi", de: "Lomi Lomi" },
       duration: "[60 / 90 min]",
       price: "[PRICE]",
