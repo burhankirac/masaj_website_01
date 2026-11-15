@@ -1,4 +1,4 @@
-# Ruhe – massage website
+# Slow Space – massage website
 
 A static website (plain HTML, CSS and a little JavaScript) for a massage practice in Berlin, hosted for free on GitHub Pages. There is no build step: what's in this folder is what goes online.
 
