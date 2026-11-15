@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ruhe – Massage in Berlin · Studio or at your place</title>
+  <meta name="description" content="Certified massage in Berlin, in a quiet studio or at your home, hotel or office. Classic, Deep Tissue, Thai, Lomi Lomi and more. Book online.">
+  <meta name="theme-color" content="#0F2A2E">
+  <link rel="alternate" hreflang="en" href="./">
+  <link rel="alternate" hreflang="de" href="de/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="#top" id="top">RUHE</a>
+      <nav class="nav" aria-label="Main">
+        <div class="nav-links">
+          <a href="#treatments">Treatments</a>
+          <a href="#where">Studio or home</a>
+          <a href="#about">About</a>
+          <a href="#how">How it works</a>
+        </div>
+        <div class="lang" role="group" aria-label="Language"><a href="#" hreflang="en" lang="en" aria-current="true">EN</a><a href="de/" hreflang="de" lang="de" >DE</a></div>
+        <a class="btn" href="#book">Book</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="book">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="hero-text">
+          <h1>An evening for your body.</h1>
+          <p class="hero-lead">Certified massage in Berlin. In the studio, or at your home, hotel or office. Same price either way.</p>
+          <p class="breath">Breathe in 4 · out 6</p>
+        </div>
+
+        <form class="book-box" id="book-form" aria-label="Start booking">
+          <h2>Book a session</h2>
+          <fieldset>
+            <legend>Where?</legend>
+            <div class="seg">
+              <button type="button" data-where="studio" aria-pressed="true" data-note="Studio in [DISTRICT], Berlin.">In the studio</button>
+              <button type="button" data-where="home" aria-pressed="false" data-note="You'll add your address in the next step.">At your place</button>
+            </div>
+          </fieldset>
+          <p class="where-note" id="where-note" aria-live="polite">Studio in [DISTRICT], Berlin.</p>
+          <div class="field">
+            <label for="treatment">Treatment</label>
+            <select id="treatment" name="treatment"></select>
+          </div>
+          <button class="btn btn-block" type="submit">Choose a time</button>
+          <p class="small">Opens the booking calendar from Cal.com. You get a confirmation and a reminder by email. <a href="datenschutz.html">Privacy</a></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section band" id="where">
+      <div class="wrap where-grid">
+        <div>
+          <span class="eyebrow">Studio</span>
+          <h2>Come in, the lights are low</h2>
+          <p>A warm, quiet room in [DISTRICT], Berlin. Towels, oils and calm music are ready.</p>
+        </div>
+        <div>
+          <span class="eyebrow">Mobile</span>
+          <h2>Or I come to you</h2>
+          <p>Home, hotel or office anywhere in Berlin. I bring the table, towels and oils.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="treatments">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Treatments</h2>
+          <p>Pay after your session, in cash or by bank transfer.</p>
+        </div>
+        <ul class="treatments" id="treatment-list"></ul>
+        <noscript><p>Please enable JavaScript to see the list of treatments.</p></noscript>
+        <p class="tax-note">No VAT is charged (small business, § 19 UStG).</p>
+      </div>
+    </section>
+
+    <section class="section band" id="about">
+      <div class="wrap">
+        <div class="about">
+          <div class="photo" role="img" aria-label="[PHOTO]">[PHOTO]</div>
+          <div class="about-text">
+            <h2>I'm [NAME]</h2>
+            <p>Certified massage therapist in Berlin. [A few sentences about training, years of practice and what a session with you feels like.]</p>
+            <p>Sessions in English and German.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="section-head"><h2>How booking works</h2></div>
+        <ol class="steps">
+        <li><span class="num" aria-hidden="true">I</span><strong>Choose treatment and time</strong><span>Pick a free slot in the calendar.</span></li>
+        <li><span class="num" aria-hidden="true">II</span><strong>Studio or your place</strong><span>For a home visit, add your address.</span></li>
+        <li><span class="num" aria-hidden="true">III</span><strong>Pay after the session</strong><span>In cash or by bank transfer.</span></li>
+        </ol>
+        <div class="cta"><a class="btn" href="#book">Book a session</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Ruhe · Berlin · Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</span>
+      <nav aria-label="Legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz (Privacy)</a></nav>
+    </div>
+  </footer>
+
+  <div class="mbar"><a class="btn" href="#book">Book a session</a></div>
+
+  <script src="treatments.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>
