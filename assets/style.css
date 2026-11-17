@@ -170,3 +170,8 @@ section[id]{scroll-margin-top:16px}
 .legal h2{font-size:28px;margin:40px 0 12px}
 .legal p,.legal li{color:var(--text-soft);margin:0 0 12px}
 .legal .todo{color:var(--accent)}
+
+.intouch{border-top:1px solid rgba(255,255,255,.12);padding-top:16px}
+.intouch summary{cursor:pointer;color:var(--accent);font-weight:600}
+.intouch p{margin-top:12px}
+.intouch a,.about-text em a{color:inherit;text-decoration:underline}
