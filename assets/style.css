@@ -196,3 +196,6 @@ section[id]{scroll-margin-top:16px}
 .health-note h3{font-size:24px}
 .health-note p{color:var(--text-soft)}
 .health-note a{color:var(--accent)}
+.contact-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line-strong)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
