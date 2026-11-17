@@ -35,6 +35,16 @@ window.SITE = {
       }
     },
     {
+      id: "face",
+      name: { en: "Face massage", de: "Gesichtsmassage" },
+      duration: "[30 / 45 min]",
+      price: "[PRICE]",
+      desc: {
+        en: "Gentle massage of face, neck and scalp for a rested, fresh look.",
+        de: "Sanfte Massage von Gesicht, Nacken und Kopfhaut für einen frischen, erholten Ausdruck."
+      }
+    },
+    {
       id: "deep-tissue",
       name: { en: "Deep tissue", de: "Tiefenmassage" },
       duration: "[60 / 90 min]",
@@ -42,6 +52,16 @@ window.SITE = {
       desc: {
         en: "Slow, firm pressure for deep muscle tension and stubborn knots.",
         de: "Langsamer, kräftiger Druck für tiefe Muskelverspannungen und hartnäckige Knoten."
+      }
+    },
+    {
+      id: "fascia",
+      name: { en: "Fascia massage", de: "Faszienmassage" },
+      duration: "[45 / 60 min]",
+      price: "[PRICE]",
+      desc: {
+        en: "Slow, stretching strokes that work into the connective tissue and help you feel more supple.",
+        de: "Langsame, dehnende Griffe, die ins Bindegewebe gehen und Sie sich geschmeidiger fühlen lassen."
       }
     },
     {
@@ -92,6 +112,16 @@ window.SITE = {
       desc: {
         en: "For heavy, tired legs and feet after long days of standing, walking or sport.",
         de: "Für schwere, müde Beine und Füße nach langem Stehen, Gehen oder Sport."
+      }
+    },
+    {
+      id: "combination",
+      name: { en: "Combination massage", de: "Kombinationsmassage" },
+      duration: "[60 / 90 min]",
+      price: "[PRICE]",
+      desc: {
+        en: "A mix of techniques from my training, shaped by how your body feels today.",
+        de: "Eine Kombination verschiedener Techniken aus meiner Ausbildung, abgestimmt darauf, wie sich Ihr Körper heute anfühlt."
       }
     }
   ]
