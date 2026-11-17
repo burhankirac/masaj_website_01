@@ -85,16 +85,6 @@ window.SITE = {
       }
     },
     {
-      id: "ortho-bionomy",
-      name: { en: "Ortho-Bionomy", de: "Orthobionomie" },
-      duration: "[60 min]",
-      price: "[PRICE]",
-      desc: {
-        en: "Soft, non-forcing positioning that helps the body release on its own.",
-        de: "Sanfte, nicht forcierende Lagerungen, die dem Körper helfen, sich selbst zu lösen."
-      }
-    },
-    {
       id: "lomi-lomi",
       name: { en: "Lomi Lomi", de: "Lomi Lomi" },
       duration: "[60 / 90 min]",

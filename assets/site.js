@@ -104,7 +104,7 @@
         "Address": fd.get("where") === "home" ? fd.get("address") : "–",
         "Preferred date": fd.get("date"),
         "Preferred time": fd.get("time"),
-        "Treatment": tr,
+        "Massage": tr,
         "Message": fd.get("message") || "–",
         "Language": lang.toUpperCase()
       };
