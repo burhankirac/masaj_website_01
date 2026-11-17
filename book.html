@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Request a session – Slow Space Massage Berlin</title>
-  <meta name="description" content="Request a massage session at Slow Space in Berlin: in the studio or at your home, hotel or office.">
+  <meta name="description" content="Request a mobile massage session with Slow Space in Berlin, at your home, hotel or office.">
   <meta name="theme-color" content="#0F2A2E">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css">
@@ -39,13 +39,8 @@
       </div>
 
       <form class="request-form" id="request-form" novalidate>
-        <fieldset>
-          <legend>Where would you like your massage? <span class="req" aria-hidden="true">*</span></legend>
-          <div class="seg">
-            <label><input type="radio" name="where" value="studio" checked><span>In the studio</span></label>
-            <label><input type="radio" name="where" value="home"><span>At your place</span></label>
-          </div>
-        </fieldset>
+        <input type="hidden" name="where" value="home">
+        <label class="consent"><input type="checkbox" name="has_table" required><span>I have a massage table at my place. <span class="req" aria-hidden="true">*</span></span></label>
 
         <div class="grid-2">
           <div class="field"><label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
@@ -53,10 +48,10 @@
         </div>
         <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
 
-        <div class="field" id="address-field" hidden>
+        <div class="field" id="address-field">
           <label for="f-address">Address in Berlin <span class="req" aria-hidden="true">*</span></label>
           <input id="f-address" name="address" type="text" autocomplete="street-address" placeholder="Street, number, postcode">
-          <p class="hint">Home, hotel or office in Berlin.</p>
+          <p class="hint">Home, hotel or office in Neukölln and neighbouring districts. Further away? Just ask.</p>
         </div>
 
         <div class="grid-2">

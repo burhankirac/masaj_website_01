@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Slow Space – Massage in Berlin · im Studio oder bei Ihnen</title>
+  <title>Slow Space – Mobile Massage in Berlin</title>
   <meta name="description" content="Achtsame, ruhige Ganzkörper-Wellnessmassage, mit solider Technik und auf jeden Menschen abgestimmt, in Berlin. Klassisch, Deep Tissue, Thai, Lomi Lomi und mehr. Termin online anfragen.">
   <meta name="theme-color" content="#0F2A2E">
   <link rel="alternate" hreflang="de" href="./">
@@ -20,7 +20,7 @@
       <nav class="nav" aria-label="Hauptmenü">
         <div class="nav-links">
           <a href="#treatments">Die Massage</a>
-          <a href="#where">Studio oder mobil</a>
+          <a href="#where">Bei Ihnen</a>
           <a href="#about">Über mich</a>
           <a href="#how">Ablauf</a>
           <a href="#faq">FAQ</a>
@@ -37,19 +37,13 @@
       <div class="wrap">
         <div class="hero-text">
           <h1>Ein Abend für Ihren Körper.</h1>
-          <p class="hero-lead">Zertifizierte Massage in Berlin. Im Studio oder bei Ihnen zu Hause, im Hotel oder im Büro. Zum gleichen Preis.</p>
+          <p class="hero-lead">Zertifizierte mobile Massage in Berlin, bei Ihnen zu Hause, im Hotel oder im Büro.</p>
           <p class="breath">Einatmen 4 · Ausatmen 6</p>
         </div>
 
         <form class="book-box" action="book.html" method="get" aria-label="Termin anfragen">
           <h2>Termin anfragen</h2>
-          <fieldset>
-            <legend>Wo?</legend>
-            <div class="seg">
-              <label><input type="radio" name="where" value="studio" checked><span>Im Studio</span></label>
-              <label><input type="radio" name="where" value="home"><span>Bei Ihnen</span></label>
-            </div>
-          </fieldset>
+          <input type="hidden" name="where" value="home">
           <div class="field">
             <label for="focus">Schwerpunkt</label>
             <select id="focus" name="focus" data-focus></select>
@@ -61,16 +55,12 @@
     </section>
 
     <section class="section band" id="where">
-      <div class="wrap where-grid">
-        <div>
-          <span class="eyebrow">Studio</span>
-          <h2>Kommen Sie herein, das Licht ist gedämpft</h2>
-          <p>Ein warmer, ruhiger Raum in [BEZIRK], Berlin. Handtücher, Öle und ruhige Musik liegen bereit.</p>
-        </div>
-        <div>
+      <div class="wrap">
+        <div class="section-head">
           <span class="eyebrow">Mobil</span>
-          <h2>Oder ich komme zu Ihnen</h2>
-          <p>Zu Hause, im Hotel oder im Büro, überall in Berlin. Liege, Handtücher und Öle bringe ich mit.</p>
+          <h2>Ich komme zu Ihnen</h2>
+          <p>Zu Hause, im Hotel oder im Büro in Neukölln und den Nachbarbezirken. Weiter weg? Fragen Sie einfach.</p>
+          <p>Derzeit kann ich nur kommen, wenn bei Ihnen eine Massageliege vorhanden ist. Frische Handtücher, Öle und ruhige Musik bringe ich mit.</p>
         </div>
       </div>
     </section>
@@ -80,7 +70,8 @@
         <div class="massage">
           <h2>Die Slow Space Massage</h2>
           <p class="massage-tagline">Achtsame, ruhige Ganzkörper-Wellnessmassage, mit solider Technik und auf jeden Menschen abgestimmt.</p>
-          <p class="massage-meta" data-massage-meta>80 Min</p>
+          <p class="massage-meta" data-massage-meta>90-Minuten-Termin · 80 Min Massage</p>
+          <p class="small" data-price-note></p>
           <p>Jede Massage ist anders. Vor dem Beginn sprechen wir kurz darüber, wie es Ihnen geht und was Sie heute brauchen: tiefe Entspannung, Verspannungen in Rücken und Schultern, müde Beine nach dem Sport oder einfach Zeit für sich. Dann gestalte ich die Massage ganz für Sie, mit Techniken aus meiner InTouch®-Ausbildung:</p>
           <ul class="techniques" data-techniques></ul>
           <a class="btn" href="book.html">Termin anfragen →</a>
@@ -96,12 +87,12 @@
         <div class="offers">
           <div class="offer">
             <h3>Gutschein: eine Slow Space Massage</h3>
-            <p class="massage-meta">80 Min · <span data-price></span></p>
+            <p class="massage-meta">90-Minuten-Termin · <span data-price></span></p>
             <p>Eine Massage zum Verschenken. Ich schicke Ihnen den Gutschein als PDF per E-Mail, zum Ausdrucken oder Weiterleiten. Gültig 3 Jahre.</p>
           </div>
           <div class="offer">
             <h3>4er-Paket + 1 Massage zum Verschenken</h3>
-            <p class="massage-meta">4 × 80 Min · [4 × PREIS]</p>
+            <p class="massage-meta">4 × 90-Minuten-Termin · <span data-package-price></span></p>
             <p>Vier Massagen für Sie, für regelmäßige Auszeiten. Als Dankeschön erhalten Sie einen Gutschein für eine weitere Massage, die Sie einem lieben Menschen schenken können. Paket gültig 12 Monate.</p>
           </div>
         </div>
@@ -133,7 +124,7 @@
       <div class="wrap">
         <div class="section-head"><h2>So funktioniert die Buchung</h2></div>
         <ol class="steps">
-        <li><span class="num" aria-hidden="true">I</span><strong>Anfrage senden</strong><span>Schwerpunkt, Wunschtag und -zeit, Studio oder bei Ihnen.</span></li>
+        <li><span class="num" aria-hidden="true">I</span><strong>Anfrage senden</strong><span>Schwerpunkt, Wunschtag und -zeit und Ihre Adresse.</span></li>
         <li><span class="num" aria-hidden="true">II</span><strong>Ich bestätige</strong><span>Per E-Mail oder Telefon, innerhalb von 24 Stunden.</span></li>
         <li><span class="num" aria-hidden="true">III</span><strong>Entspannen, danach bezahlen</strong><span>Bar oder per Überweisung.</span></li>
         </ol>
@@ -145,8 +136,8 @@
       <div class="wrap">
         <div class="section-head"><h2>Fragen &amp; Antworten</h2></div>
         <div class="faq">
-          <details><summary>Wo findet die Massage statt?</summary><p>Bei Ihnen zu Hause, im Hotel oder im Büro in Berlin. Ich bringe Massageliege, frische Handtücher und Öl mit.</p></details>
-          <details><summary>Was muss ich vorbereiten?</summary><p>Einen ruhigen, warmen Raum mit etwa 2 × 3 m freier Fläche.</p></details>
+          <details><summary>Wo findet die Massage statt?</summary><p>Bei Ihnen zu Hause, im Hotel oder im Büro in Neukölln und den Nachbarbezirken. Weiter weg? Fragen Sie einfach. Derzeit kann ich nur kommen, wenn bei Ihnen eine Massageliege vorhanden ist. Frische Handtücher und Öl bringe ich mit.</p></details>
+          <details><summary>Was muss ich vorbereiten?</summary><p>Ihre Massageliege, aufgebaut in einem ruhigen, warmen Raum mit etwas Platz, um sie herumzugehen.</p></details>
           <details><summary>Was ziehe ich an?</summary><p>Sie entkleiden sich so weit, wie es für Sie angenehm ist; die Unterwäsche bleibt an. Sie sind die ganze Zeit mit Handtüchern bedeckt, nur der Bereich, der gerade massiert wird, ist frei.</p></details>
           <details><summary>Kann ich sagen, was mir gefällt?</summary><p>Ja, gerne. Zu Beginn besprechen wir Druck, mit oder ohne Öl, Musik oder Stille und ob Sie reden oder lieber ruhen möchten. Sie können jederzeit etwas ändern.</p></details>
           <details><summary>Welches Öl verwenden Sie?</summary><p>Standardmäßig verwende ich reines, unparfümiertes süßes Mandelöl. Auf Wunsch nehme ich ein duftendes natürliches Massageöl: ein beruhigendes mit Lavendel oder ein warmes, blumiges mit Ylang-Ylang und Bergamotte. Wenn Sie es leichter und weniger ölig mögen, kann ich eine Massagelotion verwenden, die gut einzieht und sich leicht auswaschen lässt. Nach der Massage bekommen Sie ein frisches Handtuch, mit dem Sie überschüssiges Öl selbst abnehmen können. Ein leichter Film kann trotzdem bleiben. Ziehen Sie direkt danach am besten keine empfindliche Kleidung an (z. B. keine Seide). <strong>Bitte sagen Sie mir bei der Anfrage, wenn Sie eine Nuss-, Sesam- oder andere Allergie haben, empfindlich auf Düfte oder ätherische Öle reagieren oder schwanger sind.</strong> Dann verwende ich unparfümiertes, nussfreies Jojoba- oder Traubenkernöl. Für das Gesicht verwende ich ein eigenes, sanftes Gesichtsserum; wenn Ihre Gesichtshaut sehr empfindlich ist, sagen Sie es mir bitte.</p></details>

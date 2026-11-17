@@ -28,10 +28,17 @@
   /* ---- The massage on the home page ---- */
   var M = SITE.massage || {};
   Array.prototype.forEach.call(document.querySelectorAll("[data-massage-meta]"), function (el) {
-    el.textContent = (M.duration || "") + " · " + (M.price || "");
+    var dur = M.duration ? (M.duration[lang] || M.duration.en || M.duration) : "";
+    el.textContent = dur + " · " + (M.price || "");
   });
   Array.prototype.forEach.call(document.querySelectorAll("[data-price]"), function (el) {
     el.textContent = M.price || "";
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-package-price]"), function (el) {
+    el.textContent = M.packagePrice || "";
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-price-note]"), function (el) {
+    el.textContent = M.priceNote ? (M.priceNote[lang] || M.priceNote.en) : "";
   });
   Array.prototype.forEach.call(document.querySelectorAll("[data-techniques]"), function (el) {
     el.innerHTML = (SITE.techniques || []).map(function (t) {
@@ -68,7 +75,8 @@
     var addrWrap = document.getElementById("address-field");
     var addr = form.querySelector("input[name=address]");
     function syncWhere() {
-      var home = form.querySelector("input[name=where]:checked").value === "home";
+      var w = form.querySelector("input[name=where]:checked") || form.querySelector("input[name=where]");
+      var home = w.value === "home";
       addrWrap.hidden = !home;
       addr.required = home;
     }
@@ -99,6 +107,7 @@
         "Phone": fd.get("phone") || "–",
         "Where": where,
         "Address": fd.get("where") === "home" ? fd.get("address") : "–",
+        "Massage table": fd.get("has_table") ? "yes" : "–",
         "Preferred date": fd.get("date"),
         "Preferred time": fd.get("time"),
         "Focus": focus,
