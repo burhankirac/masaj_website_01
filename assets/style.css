@@ -175,3 +175,9 @@ section[id]{scroll-margin-top:16px}
 .intouch summary{cursor:pointer;color:var(--accent);font-weight:600}
 .intouch p{margin-top:12px}
 .intouch a,.about-text em a{color:inherit;text-decoration:underline}
+.massage{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.massage h2{font-size:clamp(36px,5vw,48px)}
+.massage-tagline{font-size:20px;color:var(--text-soft);font-style:italic}
+.massage-meta{color:var(--accent);font-weight:600;font-size:20px}
+.techniques{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 10px}
+.techniques li{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px;color:var(--text-soft)}

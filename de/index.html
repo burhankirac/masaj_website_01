@@ -19,7 +19,7 @@
       <a class="logo" href="#top" id="top">SLOW SPACE</a>
       <nav class="nav" aria-label="Hauptmenü">
         <div class="nav-links">
-          <a href="#treatments">Massagen</a>
+          <a href="#treatments">Die Massage</a>
           <a href="#where">Studio oder mobil</a>
           <a href="#about">Über mich</a>
           <a href="#how">Ablauf</a>
@@ -50,8 +50,8 @@
             </div>
           </fieldset>
           <div class="field">
-            <label for="treatment">Massage</label>
-            <select id="treatment" name="treatment" data-treatments></select>
+            <label for="focus">Schwerpunkt</label>
+            <select id="focus" name="focus" data-focus></select>
           </div>
           <button class="btn btn-block" type="submit">Weiter</button>
           <p class="small">Sagen Sie mir, wann es Ihnen passt. Ich bestätige innerhalb von 24 Stunden. Keine Zahlung im Voraus.</p>
@@ -76,14 +76,16 @@
 
     <section class="section" id="treatments">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Massagen</h2>
-          <p>Achtsame, ruhige Ganzkörper-Wellnessmassage, mit solider Technik und auf jeden Menschen abgestimmt.</p>
-          <p>Bezahlung nach der Massage, bar oder per Überweisung.</p>
+        <div class="massage">
+          <h2>Die Slow Space Massage</h2>
+          <p class="massage-tagline">Achtsame, ruhige Ganzkörper-Wellnessmassage, mit solider Technik und auf jeden Menschen abgestimmt.</p>
+          <p class="massage-meta" data-massage-meta>80 Min</p>
+          <p>Jede Massage ist anders. Vor dem Beginn sprechen wir kurz darüber, wie es Ihnen geht und was Sie heute brauchen: tiefe Entspannung, Verspannungen in Rücken und Schultern, müde Beine nach dem Sport oder einfach Zeit für sich. Dann gestalte ich die Massage ganz für Sie, mit Techniken aus meiner InTouch®-Ausbildung:</p>
+          <ul class="techniques" data-techniques></ul>
+          <a class="btn" href="book.html">Termin anfragen →</a>
+          <p class="small">Bezahlung nach der Massage, bar oder per Überweisung.</p>
+          <p class="tax-note">Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</p>
         </div>
-        <ul class="treatments" id="treatment-list"></ul>
-        <noscript><p>Bitte aktivieren Sie JavaScript, um die Massagen zu sehen.</p></noscript>
-        <p class="tax-note">Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</p>
       </div>
     </section>
 

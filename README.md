@@ -12,7 +12,7 @@ A static website (plain HTML, CSS and a little JavaScript) for a massage practic
 
 ## Everyday edits
 
-- **Treatments, durations and prices:** edit `treatments.js`. Both languages read from it.
+- **Massage duration, price, techniques and focus choices:** edit `treatments.js`. Both languages read from it.
 - **Text on the pages:** edit `index.html` (English) and `de/index.html` (German). Search for `[` to find every placeholder, such as `[NAME]`, `[DISTRICT]`, `[PRICE]` and `[PHOTO]`.
 - **Colours:** at the top of `assets/style.css` (`--accent` is the amber).
 - **Photo:** put e.g. `photo.jpg` into `assets/`, then in both home pages replace

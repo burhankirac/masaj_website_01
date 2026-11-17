@@ -25,37 +25,31 @@
   function nameOf(t) { return t.name[lang] || t.name.en; }
   var bookPage = document.body.getAttribute("data-book-page") || "book.html";
 
-  /* ---- Treatment list on the home page ---- */
-  var list = document.getElementById("treatment-list");
-  if (list) {
-    list.innerHTML = SITE.treatments.map(function (t) {
-      var name = nameOf(t);
-      return '<li class="treatment">' +
-        '<div class="treatment-top"><h3>' + esc(name) + '</h3>' +
-        '<span class="meta">' + esc(t.duration) + ' · ' + esc(t.price) + '</span></div>' +
-        '<p>' + esc(t.desc[lang] || t.desc.en) + '</p>' +
-        '<a class="book-link" href="' + esc(bookPage + "?treatment=" + encodeURIComponent(t.id)) + '" ' +
-        'aria-label="' + esc(T.requestName.replace("{name}", name)) + '">' + esc(T.request) + ' →</a>' +
-        '</li>';
+  /* ---- The massage on the home page ---- */
+  var M = SITE.massage || {};
+  Array.prototype.forEach.call(document.querySelectorAll("[data-massage-meta]"), function (el) {
+    el.textContent = (M.duration || "") + " · " + (M.price || "");
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-techniques]"), function (el) {
+    el.innerHTML = (SITE.techniques || []).map(function (t) {
+      return "<li>" + esc(t[lang] || t.en) + "</li>";
     }).join("");
-  }
+  });
 
-  /* ---- Treatment selects (home box + request form) ---- */
-  Array.prototype.forEach.call(document.querySelectorAll("select[data-treatments]"), function (sel) {
-    var html = SITE.treatments.map(function (t) {
-      return '<option value="' + esc(t.id) + '">' + esc(nameOf(t)) + '</option>';
+  /* ---- Focus selects (home box + request form) ---- */
+  Array.prototype.forEach.call(document.querySelectorAll("select[data-focus]"), function (sel) {
+    sel.innerHTML = (SITE.focus || []).map(function (f) {
+      return '<option value="' + esc(f.id) + '">' + esc(f[lang] || f.en) + '</option>';
     }).join("");
-    if (sel.hasAttribute("data-not-sure")) html += '<option value="not-sure">' + esc(T.notSure) + '</option>';
-    sel.innerHTML = html;
   });
 
   /* ---- Request form ---- */
   var form = document.getElementById("request-form");
   if (form) {
     var params = new URLSearchParams(window.location.search);
-    var tParam = params.get("treatment");
-    var tSel = form.querySelector("select[name=treatment]");
-    if (tParam && tSel && tSel.querySelector('option[value="' + CSS.escape(tParam) + '"]')) tSel.value = tParam;
+    var fParam = params.get("focus");
+    var fSel = form.querySelector("select[name=focus]");
+    if (fParam && fSel && fSel.querySelector('option[value="' + CSS.escape(fParam) + '"]')) fSel.value = fParam;
     var wParam = params.get("where");
     if (wParam === "home" || wParam === "studio") {
       var r = form.querySelector('input[name=where][value="' + wParam + '"]');
@@ -91,10 +85,10 @@
       var fd = new FormData(form);
       if (fd.get("botcheck")) return;
       var where = fd.get("where") === "home" ? T.home : T.studio;
-      var tr = tSel.options[tSel.selectedIndex].text;
+      var focus = fSel ? fSel.options[fSel.selectedIndex].text : "–";
       var payload = {
         access_key: SITE.formAccessKey,
-        subject: T.subject + ": " + tr + " · " + fd.get("date"),
+        subject: T.subject + " · " + fd.get("date"),
         from_name: "Slow Space website",
         replyto: fd.get("email"),
         "Name": fd.get("name"),
@@ -104,7 +98,7 @@
         "Address": fd.get("where") === "home" ? fd.get("address") : "–",
         "Preferred date": fd.get("date"),
         "Preferred time": fd.get("time"),
-        "Massage": tr,
+        "Focus": focus,
         "Message": fd.get("message") || "–",
         "Language": lang.toUpperCase()
       };
