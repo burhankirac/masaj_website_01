@@ -191,3 +191,4 @@ section[id]{scroll-margin-top:16px}
 .faq summary{cursor:pointer;font-weight:600;color:var(--text)}
 .faq details p{margin-top:10px;color:var(--text-soft)}
 .faq a{color:var(--accent)}
+.hero-cta{align-self:flex-start}
