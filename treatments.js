@@ -16,37 +16,27 @@ window.SITE = {
   treatments: [
     {
       id: "classic",
-      name: { en: "Classic", de: "Klassische Massage" },
+      name: { en: "Classic massage", de: "Klassische Massage" },
       duration: "[60 / 90 min]",
       price: "[PRICE]",
       desc: {
-        en: "Full-body massage to loosen tension and calm the nervous system.",
-        de: "Ganzkörpermassage, die Verspannungen löst und das Nervensystem beruhigt."
+        en: "Full-body massage with classic strokes to loosen tension and help you unwind.",
+        de: "Ganzkörpermassage mit klassischen Griffen, die Verspannungen löst und Sie zur Ruhe kommen lässt."
       }
     },
     {
-      id: "face-glow",
-      name: { en: "Face Glow", de: "Face Glow" },
-      duration: "[45 min]",
+      id: "back-neck",
+      name: { en: "Back, neck & shoulders", de: "Rücken-Nacken-Schulter" },
+      duration: "[30 / 45 min]",
       price: "[PRICE]",
       desc: {
-        en: "Gentle face, neck and scalp massage for a rested, fresh look.",
-        de: "Sanfte Massage von Gesicht, Nacken und Kopfhaut für einen frischen, erholten Ausdruck."
-      }
-    },
-    {
-      id: "free-flow",
-      name: { en: "Free Flow", de: "Free Flow" },
-      duration: "[60 / 90 min]",
-      price: "[PRICE]",
-      desc: {
-        en: "Intuitive, flowing strokes shaped by how your body feels today.",
-        de: "Intuitive, fließende Griffe, abgestimmt darauf, wie sich Ihr Körper heute anfühlt."
+        en: "Focused work where desk days and stress settle most. Also ideal as a short session at the office.",
+        de: "Gezielte Massage dort, wo sich Schreibtischtage und Stress am meisten festsetzen. Auch ideal als kurze Massage im Büro."
       }
     },
     {
       id: "deep-tissue",
-      name: { en: "Deep Tissue", de: "Deep Tissue" },
+      name: { en: "Deep tissue", de: "Tiefenmassage" },
       duration: "[60 / 90 min]",
       price: "[PRICE]",
       desc: {
@@ -55,18 +45,18 @@ window.SITE = {
       }
     },
     {
-      id: "foot-massage",
-      name: { en: "Foot massage", de: "Fußmassage" },
-      duration: "[30 / 45 min]",
+      id: "sport",
+      name: { en: "Sport massage", de: "Sportmassage" },
+      duration: "[45 / 60 min]",
       price: "[PRICE]",
       desc: {
-        en: "Focused work on the feet. Grounding and deeply restful.",
-        de: "Gezielte Massage der Füße. Erdend und tief entspannend."
+        en: "Firm, activating massage before or after training, for tired, hard-working muscles.",
+        de: "Kräftige, aktivierende Massage vor oder nach dem Training, für müde, beanspruchte Muskeln."
       }
     },
     {
       id: "thai",
-      name: { en: "Thai", de: "Thai-Massage" },
+      name: { en: "Traditional Thai massage", de: "Traditionelle Thaimassage" },
       duration: "[60 / 90 min]",
       price: "[PRICE]",
       desc: {
@@ -75,23 +65,33 @@ window.SITE = {
       }
     },
     {
-      id: "legs",
-      name: { en: "Legs", de: "Beinmassage" },
-      duration: "[30 / 45 min]",
-      price: "[PRICE]",
-      desc: {
-        en: "For heavy, tired legs after long days of standing, walking or sport.",
-        de: "Für schwere, müde Beine nach langem Stehen, Gehen oder Sport."
-      }
-    },
-    {
       id: "lomi-lomi",
-      name: { en: "Lomi Lomi", de: "Lomi Lomi" },
+      name: { en: "Hawaiian Lomi Lomi", de: "Hawaiianische Massage (Lomi Lomi)" },
       duration: "[60 / 90 min]",
       price: "[PRICE]",
       desc: {
-        en: "Hawaiian massage with long, wave-like forearm strokes.",
-        de: "Hawaiianische Massage mit langen, wellenartigen Streichungen der Unterarme."
+        en: "Long, wave-like strokes with the forearms, flowing over the whole body.",
+        de: "Lange, wellenartige Streichungen mit den Unterarmen, fließend über den ganzen Körper."
+      }
+    },
+    {
+      id: "foot-reflexology",
+      name: { en: "Foot reflexology", de: "Fußreflexzonenmassage" },
+      duration: "[30 / 45 min]",
+      price: "[PRICE]",
+      desc: {
+        en: "Precise pressure on the zones of the feet. Deeply calming and grounding.",
+        de: "Gezielter Druck auf die Zonen der Füße. Tief beruhigend und erdend."
+      }
+    },
+    {
+      id: "legs-feet",
+      name: { en: "Legs & feet", de: "Bein- und Fußmassage" },
+      duration: "[30 / 45 min]",
+      price: "[PRICE]",
+      desc: {
+        en: "For heavy, tired legs and feet after long days of standing, walking or sport.",
+        de: "Für schwere, müde Beine und Füße nach langem Stehen, Gehen oder Sport."
       }
     }
   ]
