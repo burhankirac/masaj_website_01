@@ -192,3 +192,7 @@ section[id]{scroll-margin-top:16px}
 .faq details p{margin-top:10px;color:var(--text-soft)}
 .faq a{color:var(--accent)}
 .hero-cta{align-self:flex-start}
+.health-note{max-width:760px;margin:36px auto 0;border:1px solid var(--line);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:10px}
+.health-note h3{font-size:24px}
+.health-note p{color:var(--text-soft)}
+.health-note a{color:var(--accent)}
