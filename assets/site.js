@@ -30,6 +30,9 @@
   Array.prototype.forEach.call(document.querySelectorAll("[data-massage-meta]"), function (el) {
     el.textContent = (M.duration || "") + " · " + (M.price || "");
   });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-price]"), function (el) {
+    el.textContent = M.price || "";
+  });
   Array.prototype.forEach.call(document.querySelectorAll("[data-techniques]"), function (el) {
     el.innerHTML = (SITE.techniques || []).map(function (t) {
       return "<li>" + esc(t[lang] || t.en) + "</li>";
