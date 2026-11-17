@@ -78,6 +78,11 @@
       var w = form.querySelector("input[name=where]:checked") || form.querySelector("input[name=where]");
       var home = w.value === "home";
       addrWrap.hidden = !home;
+      var tableWrap = document.getElementById("table-field");
+      if (tableWrap) {
+        tableWrap.hidden = !home;
+        tableWrap.querySelector("input").required = home;
+      }
       addr.required = home;
     }
     Array.prototype.forEach.call(form.querySelectorAll("input[name=where]"), function (r) {

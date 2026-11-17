@@ -39,8 +39,14 @@
       </div>
 
       <form class="request-form" id="request-form" novalidate>
-        <input type="hidden" name="where" value="home">
-        <label class="consent"><input type="checkbox" name="has_table" required><span>I have a massage table at my place. <span class="req" aria-hidden="true">*</span></span></label>
+        <fieldset>
+          <legend>Where would you like your massage? <span class="req" aria-hidden="true">*</span></legend>
+          <div class="seg">
+            <label><input type="radio" name="where" value="home" checked><span>At your place</span></label>
+            <label><input type="radio" name="where" value="studio"><span>Studio, Neukölln (address with confirmation)</span></label>
+          </div>
+        </fieldset>
+        <label class="consent" id="table-field"><input type="checkbox" name="has_table" required><span>I have a massage table at my place. <span class="req" aria-hidden="true">*</span></span></label>
 
         <div class="grid-2">
           <div class="field"><label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
