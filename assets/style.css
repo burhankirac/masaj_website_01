@@ -214,3 +214,4 @@ section[id]{scroll-margin-top:16px}
 .wa-note{max-width:640px;margin:24px auto 0}
 .messengers{margin:24px 0 0;color:var(--text-soft)}
 .messengers a{color:var(--accent);font-weight:600}
+.lang-note{margin-top:10px;color:var(--accent)}
