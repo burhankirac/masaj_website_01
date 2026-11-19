@@ -131,6 +131,8 @@
     function syncWhere() {
       var w = form.querySelector("input[name=where]:checked") || form.querySelector("input[name=where]");
       var home = w.value === "home";
+      var msg = document.getElementById("f-message");
+      if (msg && msg.dataset.phHome) msg.placeholder = home ? msg.dataset.phHome : msg.dataset.phStudio;
       addrWrap.hidden = !home;
       var tableWrap = document.getElementById("table-field");
       if (tableWrap) {
