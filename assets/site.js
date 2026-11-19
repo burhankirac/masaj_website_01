@@ -1,8 +1,7 @@
 (function () {
   "use strict";
   var SITE = window.SITE || { treatments: [] };
-  var lang = (document.documentElement.lang || "en").slice(0, 2);
-  if (lang !== "de" && lang !== "tr") lang = "en";
+  var lang = (document.documentElement.lang || "en").slice(0, 2) === "de" ? "de" : "en";
   var T = {
     en: {
       request: "Request", requestName: "Request {name}", notSure: "Not sure yet",
@@ -15,12 +14,6 @@
       sending: "Wird gesendet …", notReady: "Das Anfrageformular ist noch nicht verbunden. Bitte schreiben Sie vorerst eine E-Mail.",
       failed: "Leider hat etwas nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie eine E-Mail.",
       subject: "Neue Terminanfrage", studio: "Studio", home: "Hausbesuch"
-    },
-    tr: {
-      request: "Talep et", requestName: "{name} talep et", notSure: "Henüz emin değilim",
-      sending: "Gönderiliyor…", notReady: "Talep formu henüz bağlı değil. Lütfen şimdilik e-posta gönderin.",
-      failed: "Üzgünüm, bir sorun oluştu. Lütfen tekrar deneyin veya e-posta gönderin.",
-      subject: "Yeni randevu talebi (TR)", studio: "Stüdyo", home: "Müşterinin yerinde"
     }
   }[lang];
 
