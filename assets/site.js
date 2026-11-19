@@ -140,6 +140,13 @@
         tableWrap.querySelector("input").required = home;
       }
       addr.required = home;
+      /* Phone: required for home visits, optional for the studio */
+      var phone = document.getElementById("f-phone");
+      if (phone) phone.required = home;
+      var pr = form.querySelector("[data-phone-req]"), po = form.querySelector("[data-phone-opt]"), ph = form.querySelector("[data-phone-hint]");
+      if (pr) pr.hidden = !home;
+      if (po) po.hidden = home;
+      if (ph) ph.hidden = !home;
     }
     Array.prototype.forEach.call(form.querySelectorAll("input[name=where]"), function (r) {
       r.addEventListener("change", syncWhere);

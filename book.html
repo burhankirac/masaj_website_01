@@ -52,7 +52,7 @@
           <div class="field"><label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
           <div class="field"><label for="f-email">Email <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         </div>
-        <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="f-phone">Phone <span class="req" data-phone-req aria-hidden="true">*</span><span class="opt" data-phone-opt>(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"><p class="hint" data-phone-hint>For home visits, so I can message you before I come.</p></div>
 
         <div class="field" id="address-field">
           <label for="f-address">Address in Berlin <span class="req" aria-hidden="true">*</span></label>
@@ -74,6 +74,7 @@
 
         <button class="btn btn-block" type="submit">Send my request</button>
         <p class="form-status" id="form-status" role="alert"></p>
+        <p class="small"><strong>Your appointment is confirmed once you've replied to my message.</strong></p>
         <p class="small">No payment now. You pay after the session, in cash or by bank transfer.</p>
         <p class="small">At your first session we go through a short <a href="assets/docs/health-form.pdf" target="_blank" rel="noopener">health form (PDF)</a> together.</p>
       </form>

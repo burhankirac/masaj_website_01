@@ -52,7 +52,7 @@
           <div class="field"><label for="f-name">Ihr Name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
           <div class="field"><label for="f-email">E-Mail <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         </div>
-        <div class="field"><label for="f-phone">Telefon <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="f-phone">Telefon <span class="req" data-phone-req aria-hidden="true">*</span><span class="opt" data-phone-opt>(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"><p class="hint" data-phone-hint>Bei Hausbesuchen, damit ich Ihnen vorher schreiben kann.</p></div>
 
         <div class="field" id="address-field">
           <label for="f-address">Adresse in Berlin <span class="req" aria-hidden="true">*</span></label>
@@ -74,6 +74,7 @@
 
         <button class="btn btn-block" type="submit">Anfrage senden</button>
         <p class="form-status" id="form-status" role="alert"></p>
+        <p class="small"><strong>Ihr Termin ist bestätigt, sobald Sie auf meine Nachricht geantwortet haben.</strong></p>
         <p class="small">Keine Zahlung im Voraus. Sie bezahlen nach der Massage, bar oder per Überweisung.</p>
         <p class="small">Bei der ersten Massage gehen wir gemeinsam einen kurzen <a href="../assets/docs/gesundheitsbogen.pdf" target="_blank" rel="noopener">Gesundheitsbogen (PDF)</a> durch.</p>
       </form>
