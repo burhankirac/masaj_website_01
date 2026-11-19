@@ -34,6 +34,23 @@
     onScroll();
   }
 
+
+  /* ---- Language switch: stay in the same section instead of jumping to the top ---- */
+  Array.prototype.forEach.call(document.querySelectorAll(".lang a"), function (a) {
+    if (a.getAttribute("aria-current") === "true") return;
+    a.addEventListener("click", function (e) {
+      var sections = document.querySelectorAll("main section[id]");
+      if (!sections.length || window.scrollY < 80) return;
+      var current = null;
+      Array.prototype.forEach.call(sections, function (sec) {
+        if (sec.getBoundingClientRect().top <= window.innerHeight * 0.35) current = sec;
+      });
+      if (!current) return;
+      e.preventDefault();
+      window.location.href = a.getAttribute("href").split("#")[0] + "#" + current.id;
+    });
+  });
+
   /* ---- The massage on the home page ---- */
   var M = SITE.massage || {};
   Array.prototype.forEach.call(document.querySelectorAll("[data-massage-meta]"), function (el) {
