@@ -51,6 +51,22 @@
   Array.prototype.forEach.call(document.querySelectorAll(".lang a"), function (a) {
     if (a.getAttribute("aria-current") === "true") return;
     a.addEventListener("click", function (e) {
+      /* Request page: remember scroll position and what was already typed */
+      var rf = document.getElementById("request-form");
+      if (rf) {
+        try {
+          var fields = {};
+          Array.prototype.forEach.call(rf.elements, function (el) {
+            if (!el.name || el.name === "botcheck" || el.name === "consent") return;
+            if (el.type === "radio") { if (el.checked) fields[el.name] = el.value; }
+            else if (el.type === "checkbox") fields[el.name] = el.checked;
+            else if (el.tagName === "SELECT") fields[el.name] = el.selectedIndex;
+            else fields[el.name] = el.value;
+          });
+          sessionStorage.setItem("ss-request", JSON.stringify({ y: window.scrollY, fields: fields, t: Date.now() }));
+        } catch (err) {}
+        return;
+      }
       var sections = document.querySelectorAll("main section[id]");
       if (!sections.length || window.scrollY < 80) return;
       var current = null;
@@ -127,6 +143,30 @@
       r.addEventListener("change", syncWhere);
     });
     syncWhere();
+
+    /* Coming from the other language: restore what was typed and the scroll position, instantly */
+    try {
+      var saved = JSON.parse(sessionStorage.getItem("ss-request") || "null");
+      sessionStorage.removeItem("ss-request");
+      if (saved && Date.now() - saved.t < 60000) {
+        Array.prototype.forEach.call(form.elements, function (el) {
+          if (!el.name || !(el.name in saved.fields)) return;
+          var v = saved.fields[el.name];
+          if (el.type === "radio") el.checked = (el.value === v);
+          else if (el.type === "checkbox") el.checked = !!v;
+          else if (el.tagName === "SELECT") el.selectedIndex = v;
+          else el.value = v;
+        });
+        syncWhere();
+        var rootEl = document.documentElement;
+        rootEl.style.scrollBehavior = "auto";
+        window.scrollTo(0, saved.y);
+        window.addEventListener("load", function () {
+          window.scrollTo(0, saved.y);
+          setTimeout(function () { rootEl.style.scrollBehavior = ""; }, 50);
+        });
+      }
+    } catch (err) {}
 
     var status = document.getElementById("form-status");
     var btn = form.querySelector("button[type=submit]");
