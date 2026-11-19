@@ -211,3 +211,4 @@ section[id]{scroll-margin-top:16px}
   section[id]{scroll-margin-top:96px}
 }
 @media (min-width:761px) and (prefers-reduced-motion:reduce){.site-header{transition:none}}
+.wa-note{max-width:640px;margin:24px auto 0}
