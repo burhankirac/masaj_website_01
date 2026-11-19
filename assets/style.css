@@ -183,6 +183,7 @@ section[id]{scroll-margin-top:16px}
 .techniques li{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px;color:var(--text-soft)}
 .center{text-align:center}
 .offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px;max-width:900px;margin:0 auto 24px}
+.offers.single{max-width:560px}
 .offer{border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px}
 .offer h3{font-size:24px}
 .offer p{color:var(--text-soft)}
