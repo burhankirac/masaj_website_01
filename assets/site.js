@@ -147,6 +147,7 @@
       if (pr) pr.hidden = !home;
       if (po) po.hidden = home;
       if (ph) ph.hidden = !home;
+      Array.prototype.forEach.call(form.querySelectorAll("[data-home-only]"), function (el) { el.hidden = !home; });
     }
     Array.prototype.forEach.call(form.querySelectorAll("input[name=where]"), function (r) {
       r.addEventListener("change", syncWhere);
