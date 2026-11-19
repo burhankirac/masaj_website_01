@@ -32,6 +32,7 @@ p{margin:0}
 .btn-ghost{background:transparent;color:var(--text);border-color:var(--line-strong)}
 .btn-ghost:hover{background:var(--surface);color:var(--text)}
 .btn-block{width:100%}
+.show-mobile{display:none}
 
 /* ---------- Header ---------- */
 .site-header{padding:20px 0}
@@ -121,6 +122,8 @@ section[id]{scroll-margin-top:16px}
 /* ---------- Phone ---------- */
 .mbar{display:none}
 @media (max-width:760px){
+  .hide-mobile{display:none}
+  .show-mobile{display:inline}
   .nav-links{display:none}
   .logo{font-size:21px;letter-spacing:.05em}
   .site-header .wrap{gap:10px}
@@ -200,3 +203,11 @@ section[id]{scroll-margin-top:16px}
 .contact-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line-strong)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- Sticky header (laptop/desktop only) ---------- */
+@media (min-width:761px){
+  .site-header{position:sticky;top:0;z-index:50;background:var(--bg);transition:padding .25s ease,box-shadow .25s ease}
+  .site-header.scrolled{padding:10px 0;box-shadow:0 1px 0 var(--line),0 8px 24px rgba(0,0,0,.25)}
+  section[id]{scroll-margin-top:96px}
+}
+@media (min-width:761px) and (prefers-reduced-motion:reduce){.site-header{transition:none}}

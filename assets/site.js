@@ -25,6 +25,15 @@
   function nameOf(t) { return t.name[lang] || t.name.en; }
   var bookPage = document.body.getAttribute("data-book-page") || "book.html";
 
+
+  /* ---- Sticky header: slimmer once the page is scrolled ---- */
+  var header = document.querySelector(".site-header");
+  if (header) {
+    var onScroll = function () { header.classList.toggle("scrolled", window.scrollY > 10); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
   /* ---- The massage on the home page ---- */
   var M = SITE.massage || {};
   Array.prototype.forEach.call(document.querySelectorAll("[data-massage-meta]"), function (el) {
