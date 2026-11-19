@@ -35,6 +35,18 @@
   }
 
 
+
+  /* ---- Opened at a section (e.g. after a language switch): jump there instantly, no slow scroll ---- */
+  if (window.location.hash && document.getElementById(window.location.hash.slice(1))) {
+    var root = document.documentElement;
+    root.style.scrollBehavior = "auto";
+    document.getElementById(window.location.hash.slice(1)).scrollIntoView();
+    window.addEventListener("load", function () {
+      document.getElementById(window.location.hash.slice(1)).scrollIntoView();
+      setTimeout(function () { root.style.scrollBehavior = ""; }, 50);
+    });
+  }
+
   /* ---- Language switch: stay in the same section instead of jumping to the top ---- */
   Array.prototype.forEach.call(document.querySelectorAll(".lang a"), function (a) {
     if (a.getAttribute("aria-current") === "true") return;
