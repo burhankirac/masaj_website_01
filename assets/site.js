@@ -179,7 +179,6 @@
       var fd = new FormData(form);
       if (fd.get("botcheck")) return;
       var where = fd.get("where") === "home" ? T.home : T.studio;
-      var focus = fSel ? fSel.options[fSel.selectedIndex].text : "–";
       var payload = {
         access_key: SITE.formAccessKey,
         subject: T.subject + " · " + fd.get("date"),
@@ -193,7 +192,6 @@
         "Massage table": fd.get("has_table") ? "yes" : "–",
         "Preferred date": fd.get("date"),
         "Preferred time": fd.get("time"),
-        "Focus": focus,
         "Message": fd.get("message") || "–",
         "Language": lang.toUpperCase()
       };
