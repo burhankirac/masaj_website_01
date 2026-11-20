@@ -149,7 +149,6 @@
       var tableWrap = document.getElementById("table-field");
       if (tableWrap) {
         tableWrap.hidden = !home;
-        tableWrap.querySelector("input").required = home;
       }
       addr.required = home;
       Array.prototype.forEach.call(form.querySelectorAll("[data-home-only]"), function (el) { el.hidden = !home; });
@@ -204,7 +203,7 @@
         "Phone": fd.get("phone") || "–",
         "Where": where,
         "Address": fd.get("where") === "home" ? fd.get("address") : "–",
-        "Massage table": fd.get("has_table") ? "yes" : "–",
+        "Massage table": fd.get("where") === "home" ? (fd.get("has_table") ? "yes" : "no") : "–",
         "Preferred date": fd.get("date"),
         "Preferred time": fd.get("time"),
         "Message": fd.get("message") || "–",
