@@ -29,7 +29,19 @@
   /* ---- Sticky header: slimmer once the page is scrolled ---- */
   var header = document.querySelector(".site-header");
   if (header) {
-    var onScroll = function () { header.classList.toggle("scrolled", window.scrollY > 10); };
+    /* Two thresholds so the header can't flip back and forth when it changes height */
+    var onScroll = function () {
+      var y = window.scrollY;
+      if (y > 40) header.classList.add("scrolled");
+      else if (y < 5) header.classList.remove("scrolled");
+    };
+    /* Logo: back to the very top (no jump to an element inside the fixed header) */
+    var logo = header.querySelector('.logo[href="#"]');
+    if (logo) logo.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (window.location.hash) history.replaceState(null, "", window.location.pathname + window.location.search);
+    });
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   }
